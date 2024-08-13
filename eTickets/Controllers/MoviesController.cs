@@ -4,16 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
-    public class ActorController : Controller
+    public class MoviesController : Controller
     {
         private readonly AppDbContext _context;
-        public ActorController(AppDbContext context)
+        public MoviesController(AppDbContext context)
         {
             _context = context; 
         }
         public async Task<IActionResult> Index()
         {
-            var data=await _context.Actors.ToListAsync();
+            var data= await _context.Movies.Include(i=>i.Cinema).ToListAsync();
             return View(data);
         }
     }
