@@ -10,14 +10,16 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IActorsService, ActorsServices>();
+builder.Services.AddScoped<IProducersServices, ProducersServices>();
+builder.Services.AddScoped<IMoviesServices, MoviesServices>();
+builder.Services.AddScoped<ICinemasService, CinemasServices>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

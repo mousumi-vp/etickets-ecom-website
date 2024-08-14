@@ -1,15 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using eTickets.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace eTickets.Models
 {
-    public class Producer
+    public class Producer:IEntityBase
     {
+
         [Key]
         public int Id { get; set; }
-        public string? ProfilePictureURL { get; set; }
-        public required string FullName { get; set; }
-        public string? Bio { get; set; }
+        [Display(Name = "Profile Picture")]
+        [Required(ErrorMessage = "Profile Picture is required")]
+        public string ProfilePictureURL { get; set; }
+        [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "Full Name is required")]
+        public string FullName { get; set; }
+        [Display(Name = "Bio")]
+        [Required(ErrorMessage = "Bio is required")]
+        public string Bio { get; set; }
 
-        public List<Movie> Movies { get; set; }
+        public List<Movie>? Movies { get; set; }
     }
 }
