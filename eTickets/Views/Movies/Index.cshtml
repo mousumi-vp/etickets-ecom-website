@@ -15,10 +15,10 @@
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @item.Name
-                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                    {
+                                   @*  @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    { *@
                                         <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
-                                    }
+                                   @*  } *@
                                 </h5>
                             </p>
                         </div>
@@ -70,11 +70,5 @@
         </div>
     }
 </div>
-<div class="row">
-    <div class="col-md-10">
-    </div>
-    <div class="col-md-2">
-        <a class="btn btn-success" asp-action="Create"> Create </a>
-    </div>
-</div>
-@* @await Html.PartialAsync("_CreateItem", "Movies")  *@
+
+@await Html.PartialAsync("_CreateItem", "Movies") 
